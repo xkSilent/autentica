@@ -16,8 +16,13 @@ public class UsuarioResource {
 	
 	@Autowired
 	private UsuarioService service;
+	
+	@RequestMapping(method=RequestMethod.GET)
+	public String testeRest() {
+		return "Tudo OK !!! ";
+	}
+	
 	@RequestMapping(value="/{id}",method=RequestMethod.GET)
-
 	public ResponseEntity<?> find(@PathVariable String id){
 		Usuario obj = service.buscar(id);
 		return ResponseEntity.ok().body(obj);
